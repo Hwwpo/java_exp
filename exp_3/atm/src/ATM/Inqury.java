@@ -19,7 +19,7 @@ public class Inqury extends JFrame{
 	//构造查询界面
     public Inqury(Account account){
 	    super("查询");
-	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	    setLayout(new FlowLayout());
 	    currentAccount=account;	 
 	    

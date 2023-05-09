@@ -26,7 +26,7 @@ public class InMoney implements ActionListener{
 	public InMoney(Account account){
 		inframe=new JFrame("存款");
 		currentAccount=account;
-		inframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		inframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		op0=new JPanel();
 		id=new JLabel("账号："+currentAccount.id);//获取Test类中的账号数据（下同）
@@ -88,7 +88,7 @@ public class InMoney implements ActionListener{
 	            	 money.setText("");
 	            	}
 	         }  
-	         catch (ClassCastException e1){//捕获当前登录账户中inmoney函数中的异常。类型转换异常
+	         catch (ClassCastException e1){//捕获当前登录账户中 inmoney 函数中的异常。类型转换异常
 	             JOptionPane.showMessageDialog(null, "输入数据类型错误，请输入整数");  
 	            }  
 	         catch (Exception e1) {

@@ -21,7 +21,7 @@ public class ChangePassword implements ActionListener {
 	//构造更改密码界面
 	public ChangePassword(Account account){
 		cframe=new JFrame("更改密码");
-		cframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		cframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		currentAccount=account;
 		cp0=new JPanel();
 		l1=new JLabel("原密码：");

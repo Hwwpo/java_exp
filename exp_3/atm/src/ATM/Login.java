@@ -3,13 +3,14 @@ package ATM;
 import javax.swing.*;  
 import java.awt.*; 
 import java.awt.event.*;
+import java.io.FileNotFoundException;
 /*
  * 登录界面
  */
 
 public class Login extends JFrame implements ActionListener{
 	public Account currentAccount;//登录的用户
-	private JPanel p0,p1,p2,p3;//定义面板，布局
+	private JPanel p0,p1,p2,p3, pu, pd;//定义面板，布局
 	private JTextField userName;//账号
 	private JPasswordField passWord;//密码
 	private JButton login,exit;  //登录，退出按钮
@@ -19,8 +20,10 @@ public class Login extends JFrame implements ActionListener{
 		super("登录ATM");//窗体标题 
 		currentAccount=account;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//设置窗口的点击右上角的x的处理方式，这里设置的是退出程序  
-		setLayout(new GridLayout(4,1));//设置窗体布局为4*1的网格布局
-		
+		setLayout(new GridLayout(6,1));//设置窗体布局为4*1的网格布局
+
+		pu = new JPanel();
+
 		p0=new JPanel();
 		jl1=new JLabel("欢迎使用ATM柜员机系统！");//设置标签内容（下同）
 		jl1.setFont(new Font("黑体",Font.BOLD,40));//设置标签字体，加粗，大小（下同）
@@ -51,12 +54,14 @@ public class Login extends JFrame implements ActionListener{
 		exit.setBounds(500, 50, 60, 40);
 		p3.add(login);
 		p3.add(exit);
-		
+		pd = new JPanel();
 		//将面板添加到窗体
+		add(pu);
 		add(p0);
 		add(p1);
 		add(p2);
-		add(p3);		
+		add(p3);
+		add(pd);
 		
 		setVisible(true);//设置窗体可见
 		setSize(900, 700);//设置窗体大小		
@@ -94,12 +99,12 @@ public class Login extends JFrame implements ActionListener{
 		} 		
 		
 		if(e.getSource()==exit){//监听exit按钮
-			JOptionPane.showMessageDialog(null, "确认退出！");
+			// JOptionPane.showMessageDialog(null, "确认退出！");
 			dispose();//关闭窗体
 		}
 	}  
 	public static void main(String[] args){
-		Account currentAccount=new Account("888888","123456","50000");
+		Account currentAccount=new Account();
 	    Login login = new Login(currentAccount);  //程序入口
 	}  
 }

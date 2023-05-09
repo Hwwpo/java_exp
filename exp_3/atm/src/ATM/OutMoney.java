@@ -24,7 +24,7 @@ public class OutMoney implements ActionListener{
 	//构造取款界面
 	public OutMoney(Account account){
 		oframe=new JFrame("取款");
-		oframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		oframe.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		currentAccount=account;
 		op0=new JPanel();
 		id=new JLabel("账号："+currentAccount.id);
@@ -79,7 +79,7 @@ public class OutMoney implements ActionListener{
             	if(money1%100==0) {//取款金额为整百的数
             		flag1=true;
             	}
-            	if(money1<=5000&&money1>0) {//取款金额不超过5000
+            	if(money1<=5000) {//取款金额不超过5000
             		flag2=true;
             	}
             	if(flag1&&flag2) {            		
@@ -96,16 +96,14 @@ public class OutMoney implements ActionListener{
             		JOptionPane.showMessageDialog(null, "系统不支持取款超过5000元\n 请重新输入取款金额 ！ ");//弹窗 
             		money.setText("");
             	}
-            	if(money1>currentAccount.money){
-            		JOptionPane.showMessageDialog(null, "余额不足，请重新输入取款金额 ！ ");//弹窗 
-            		money.setText("");
-            	}
-            }  
+			}
             catch (ClassCastException e1){
                 JOptionPane.showMessageDialog(null, "输入数据类型错误，请输入整数");//捕获Test类中outmoney方法的异常
+				money.setText("");
             }  
             catch (Exception e1){  
-                JOptionPane.showMessageDialog(null, e1.getMessage());  
+                JOptionPane.showMessageDialog(null, e1.getMessage());
+				money.setText("");
             }  
         }  
 		else if(e.getActionCommand().equals("返回")){
